@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web', 'checkblocked']], function () {
 Auth::routes(['register' => false]);
 
 // Public Routes
-Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['web', 'checkblocked']], function () {
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);

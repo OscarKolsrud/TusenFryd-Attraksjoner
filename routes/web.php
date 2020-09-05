@@ -105,6 +105,20 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
+    Route::prefix('manage')->group(function () {
+        Route::prefix('attraction')->group(function () {
+            //Create new
+            Route::get('/new', 'AttractionController@addView')->name('addAttraction-view');
+            Route::post('/new', 'AttractionController@add')->name('addAttraction-post');
+
+            //Edit
+            Route::get('/{slug}/edit', 'AttractionController@editView')->name('editAttraction-view');
+            Route::put('/{slug}/edit', 'AttractionController@edit')->name('editAttraction-put');
+        });
+    });
+
+
+
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',

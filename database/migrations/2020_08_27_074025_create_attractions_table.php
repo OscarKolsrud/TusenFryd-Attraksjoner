@@ -20,7 +20,8 @@ class CreateAttractionsTable extends Migration
             $table->text('description')->nullable();
             $table->string('read_more')->nullable();
             $table->boolean('open')->default(true);
-            $table->json('opening_times');
+            $table->text('opening_times_information');
+            $table->integer('sort_order')->default(10);
             $table->timestamps();
         });
     }

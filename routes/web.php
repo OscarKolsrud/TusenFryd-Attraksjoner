@@ -107,6 +107,8 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
     Route::prefix('manage')->group(function () {
         Route::prefix('attraction')->group(function () {
+            Route::get('/list', 'AttractionController@list')->name('listAttraction');
+
             //Create new
             Route::get('/new', 'AttractionController@addView')->name('addAttraction-view');
             Route::post('/new', 'AttractionController@add')->name('addAttraction-post');
@@ -114,6 +116,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
             //Edit
             Route::get('/{slug}/edit', 'AttractionController@editView')->name('editAttraction-view');
             Route::put('/{slug}/edit', 'AttractionController@edit')->name('editAttraction-put');
+            Route::put('/{slug}/opening', 'AttractionController@opening')->name('openingAttraction-put');
         });
     });
 

@@ -1,216 +1,60 @@
-<table border="1"><thead><tr><th>Dato</th>
-        <th>Dagsbilletter</th>
-        <th>Sesongkort</th>
-    </tr></thead><tbody><!--<tr><td>24. juli</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-</tr>
-<tr>
-<td>25. juli</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>26. juli</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>27. juli</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>28. juli</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>29. juli</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>30. juli</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-</tr>
-<tr>
-<td>31. juli</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-</tr>
-<tr>
-<td>1. august</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-</tr>
-<tr>
-<td>2. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>3. august</td>
-<td><span style="color:#e67e23">Få billetter</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>4. august</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>5. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>6. august</td>
-<td><span style="color:#e74c3c">Utsolgt</span></td>
-<td><span style="color:#e74c3c">Fullt</span></td>
-</tr>
-<tr>
-<td>7. august</td>
-<td><span style="color:#e67e23">Få billetter</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>8. august</td>
-<td><span style="color:#e67e23">Få billetter</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>9. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#e67e23">Få plasser</span></td>
-</tr>
-<tr>
-<td>10. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>11. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>12. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>13. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>14. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>15. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>16. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>17. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>22. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>23. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>29. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>30. august</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>5. september</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<tr>
-<td>6. september</td>
-<td><span style="color:#16a085">Billetter ledig</span></td>
-<td><span style="color:#16a085">Plasser ledig</span></td>
-</tr>
-<p>--><tr><td>12. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>13. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>19. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>20. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>26. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>27. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>28. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>29. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>30. september</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>1. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>2. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>3. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>4. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>10. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>11. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>17. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>18. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>24. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr><tr><td>25. oktober</td>
-        <td><span style="color:#16a085">Billetter ledig</span></td>
-        <td><span style="color:#16a085">Plasser ledig</span></td>
-    </tr></tbody></table>
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Status attraksjoner"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Status Attraksjoner | Tusenfryd</title>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_jvzvLgmOcuAT2hi2Uw7AY7iB1WgZYE4bluDzbgKhQcs.css" media="all"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_c7WWF-M3FOUU1GY7ocDP7vWJbc2yI2lmXGRw1Hiwmbk.css" media="all"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_S61Du032h31FyLKfHl0FWONJpJwoAR-B4VGw3DNqazc.css" media="screen"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_CVofwQjLuCZqHsS3Q6YqJ3JPcCXn_rLk94HgBUAuziM.css" media="all"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_-NJM-BYS5FRkNRd-KhyXE0sptQth3KF621uuoULiUmk.css" media="all"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_VNaH3p4nkZuz4wils88YQ342kSzu1BOgIX-H2LdZlQ8.css" media="all"/>
+    <link type="text/css" rel="stylesheet"
+          href="/sites/tusenfryd.no/files/css/css_4R2_16c3H8v1-9yFlixgiv448ZSVqip2YbrJ0InqXGg.css" media="all"/>
+
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</head>
+<body
+    class="html not-front not-logged-in page-node page-node- page-node-571 node-type-simple i18n-nb section-status-billettsalg">
+<div class="pane-content">
+    @forelse ($attractions as $attraction)
+        @if($loop->first)
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>Attraksjon</th>
+                    <th>Nåværende status</th>
+                    <th>Driftsmelding</th>
+                </tr>
+                </thead>
+                <tbody>
+            @endif
+            <tr>
+                <td>{{ $attraction->name }}</td>
+                <td>@if($attraction->open)<span style="color:#16a085">Åpen</span>@else<span style="color:#e74c3c">Stengt</span>@endif</td>
+                <td><a href="{{ route('driftsmeldingv1', ['attraction' => $attraction->slug]) }}" rel="modal:open">Driftsmeldinger</a></td>
+                <!--<td><span style="color:#e67e23">Lang kø</span></td>-->
+            </tr>
+        @if($loop->last)
+                </tbody>
+            </table>
+            <p>Sist oppdatert: {{ \Carbon\Carbon::now()->setTimezone('Europe/Oslo')->format('H:i:s d.m.Y') }}</p>
+            @endif
+    @empty
+    @endforelse
+
+</div>
+</body>

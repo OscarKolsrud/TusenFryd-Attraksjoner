@@ -8,6 +8,18 @@ use Illuminate\Support\Str;
 
 class AttractionController extends Controller
 {
+    public function publicListv1() {
+        return view('pages.iframes.ver1', [
+            'attractions' => Attraction::orderBy('sort_order', 'ASC')->get()
+        ]);
+    }
+
+    public function driftsmeldingv1($attraction) {
+        return view('pages.iframes.statusmelding', [
+            'attraction' => Attraction::where('slug', $attraction)->firstOrFail()
+        ]);
+    }
+
     public function list(Request $request) {
         return view('pages.attraction.list', [
             'attractions' => Attraction::paginate(15)

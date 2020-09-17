@@ -20,7 +20,13 @@ Route::group(['middleware' => ['web', 'checkblocked']], function () {
     Route::get('/', 'WelcomeController@welcome')->name('welcome');
     Route::get('/terms', 'TermsController@terms')->name('terms');
 
-    Route::view('/iframe', 'iframes.fullpage');
+    Route::prefix('integrationView')->group(function () {
+        Route::prefix('v1')->group(function () {
+            Route::get('/iframe', 'AttractionController@publicListv1')->name('publicListv1');
+            Route::get('/driftsmelding/{attraction}', 'AttractionController@driftsmeldingv1')->name('driftsmeldingv1');
+        });
+    });
+
 });
 
 // Authentication Routes

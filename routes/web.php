@@ -112,6 +112,8 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
     Route::prefix('manage')->group(function () {
+
+        //Routes for Attraction management
         Route::prefix('attraction')->group(function () {
             Route::get('/list', 'AttractionController@list')->name('listAttraction');
 
@@ -123,6 +125,19 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
             Route::get('/{slug}/edit', 'AttractionController@editView')->name('editAttraction-view');
             Route::put('/{slug}/edit', 'AttractionController@edit')->name('editAttraction-put');
             Route::put('/{slug}/opening', 'AttractionController@opening')->name('openingAttraction-put');
+        });
+
+        //Routes for service messages
+        Route::prefix('servicemessage')->group(function () {
+            Route::get('/list', 'ServiceMessageController@list')->name('listService');
+
+            //Create new
+            Route::get('{attraction}/new', 'ServiceMessageController@addView')->name('serviceMsgView');
+            Route::post('{attraction}/new', 'ServiceMessageController@add')->name('serviceMsg-post');
+
+            //Edit
+            Route::get('/{messageid}/edit', 'ServiceMessageController@editView')->name('serviceMsg-view');
+            Route::put('/{messageid}/edit', 'ServiceMessageController@edit')->name('serviceMsg-put');
         });
     });
 

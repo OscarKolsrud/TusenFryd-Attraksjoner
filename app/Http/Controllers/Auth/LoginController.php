@@ -54,4 +54,10 @@ class LoginController extends Controller
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
+
+    //Username instead of email login
+    public function username()
+    {
+        return 'username';
+    }
 }

@@ -15,6 +15,10 @@ class CreateServiceMessagesTable extends Migration
     {
         Schema::create('service_messages', function (Blueprint $table) {
             $table->id();
+            $table->text('content');
+            $table->dateTime('expires_at', 0);
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('attraction_id');
             $table->timestamps();
         });
     }

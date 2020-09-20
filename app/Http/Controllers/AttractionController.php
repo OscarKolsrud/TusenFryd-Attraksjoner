@@ -46,7 +46,7 @@ class AttractionController extends Controller
 
         $attraction = Attraction::create($validated);
 
-        return redirect()->route('editAttraction-view', ['slug' => $attraction->slug])->with(array('message' => 'Attraksjonen ble oppdatert', 'status' => 'success'));
+        return redirect()->route('serviceMsg-view', ['slug' => $attraction->slug])->with(array('message' => 'Statusmeldingen ble publisert', 'status' => 'success'));
     }
 
     public function editView($slug) {

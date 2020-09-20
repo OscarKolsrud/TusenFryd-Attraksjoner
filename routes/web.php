@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']]
 Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'checkblocked']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    Route::get('/home', 'AttractionController@list')->name('listAttraction-HomeVariant');
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
@@ -129,7 +129,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
 
         //Routes for service messages
         Route::prefix('servicemessage')->group(function () {
-            Route::get('/list', 'ServiceMessageController@list')->name('listService');
+            //List servicemessages for the specific attraction
+            Route::get('{attraction}/list', 'ServiceMessageController@listView')->name('listServiceSpecific');
 
             //Create new
             Route::get('{attraction}/new', 'ServiceMessageController@addView')->name('serviceMsgView');

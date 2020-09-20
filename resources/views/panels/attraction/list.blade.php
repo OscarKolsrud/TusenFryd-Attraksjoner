@@ -3,12 +3,13 @@
     <div class="card-body">
         @forelse ($attractions as $attraction)
             @if($loop->first)
+                <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
                         <th scope="col">Navn</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Endre status</th>
+                        <!--<th scope="col">Endre status</th>-->
                         <th scope="col">Handlinger</th>
                     </tr>
                     </thead>
@@ -17,7 +18,7 @@
                 <tr>
                     <th scope="row">{{ $attraction->name }}</th>
                     <td>@if($attraction->open)<span class="badge badge-success">Åpen</span>@else<span class="badge badge-danger">Stengt</span>@endif</td>
-                    <td>
+                    <!--<td>
                         <form action="{{ route('openingAttraction-put', ['slug' => $attraction->slug]) }}" method="post">
                             @csrf
                             @method('PUT')
@@ -31,10 +32,10 @@
                             </div>
                             <button type="submit" class="btn btn-sm btn-primary">Lagre</button>
                         </form>
-                    </td>
+                    </td>-->
                     <td>
                         <div class="btn-group" role="group" aria-label="Handlinger">
-                            <a class="btn btn-sm btn-secondary" href="{{ route('editAttraction-view', ['slug' => $attraction->slug]) }}" role="button">Statusmeldinger</a>
+                            <a class="btn btn-sm btn-secondary" href="{{ route('listServiceSpecific', ['attraction' => $attraction->slug]) }}" role="button">Statusmeldinger</a>
                             <a class="btn btn-sm btn-primary" href="{{ route('editAttraction-view', ['slug' => $attraction->slug]) }}" role="button">Rediger</a>
                         </div>
                     </td>
@@ -42,6 +43,7 @@
                 @if($loop->last)
                 </tbody>
             </table>
+                </div>
                 <div class="d-flex justify-content-center">
                     {{ $attractions->links() }}
                 </div>

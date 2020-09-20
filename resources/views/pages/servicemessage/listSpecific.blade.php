@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Legg til ny statusmelding
+    Statusmeldinger {{ $attraction->name }}
 @endsection
 
 @section('template_fastload_css')
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12 col-lg-10 offset-lg-1">
 
-                @include('panels.servicemessage.add')
+                @include('panels.servicemessage.listSpecific')
 
             </div>
         </div>

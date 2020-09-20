@@ -58,6 +58,6 @@ class LoginController extends Controller
     //Username instead of email login
     public function username()
     {
-        return 'username';
+        return 'name';
     }
 }

@@ -14,7 +14,7 @@ class ServiceMessageController extends Controller
 
         return view('pages.servicemessage.listSpecific', [
             'attraction' => $data,
-            'servicemessages' => $data->ServiceMessages()
+            'servicemessages' => ServiceMessage::where('attraction_id', $data->id)->orderBy('id', 'DESC')->get()
         ]);
     }
 
@@ -28,6 +28,22 @@ class ServiceMessageController extends Controller
         return view('pages.servicemessage.edit', [
             'servicemessage' => ServiceMessage::findOrFail($servicemessage)
         ]);
+    }
+
+    public function edit(Request $request, $servicemessage) {
+        //Validate the incoming data
+        $validated = $request->validate([
+            'content' => 'required'
+        ], []);
+
+        //Fetch the servicemessage
+        $servicemessage = ServiceMessage::findOrFail($servicemessage);
+
+        //Update the content
+        $servicemessage->content = $validated["content"];
+        $servicemessage->update();
+
+        return redirect()->route('serviceMsg-view', ['messageid' => $servicemessage->id])->with(array('message' => 'Statusmeldingens innhold ble oppdatert', 'status' => 'success'));
     }
 
     public function add(Request $request, $attraction) {
@@ -64,6 +80,6 @@ class ServiceMessageController extends Controller
         $servicemessage = ServiceMessage::create($validated);
 
 
-        return redirect()->route('serviceMsg-view', ['messageid' => $servicemessage->id])->with(array('message' => 'Attraksjonen ble oppdatert', 'status' => 'success'));
+        return redirect()->route('serviceMsg-view', ['messageid' => $servicemessage->id])->with(array('message' => 'Statusmeldingen ble lagt til', 'status' => 'success'));
     }
 }

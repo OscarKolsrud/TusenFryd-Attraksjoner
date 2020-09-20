@@ -10,18 +10,17 @@
                         <tr>
                             <th scope="col">Innhold</th>
                             <th scope="col">Utløp</th>
-                            <!--<th scope="col">Endre status</th>-->
                             <th scope="col">Handlinger</th>
                         </tr>
                         </thead>
                         <tbody>
                         @endif
                         <tr>
-                            <th scope="row">{{ $message->content }}</th>
+                            <td>{{ \Illuminate\Support\Str::limit($message->content, 250) }}</td>
                             <td>{{ \Carbon\Carbon::parse($message->expires_at)->setTimezone('Europe/Oslo')->format('H:i d.m.Y') }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Handlinger">
-                                    <a class="btn btn-sm btn-primary" href="#" role="button">Rediger</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('serviceMsg-view', ['messageid' => $message->id]) }}" role="button">Rediger</a>
                                 </div>
                             </td>
                         </tr>

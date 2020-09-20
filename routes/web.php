@@ -51,7 +51,7 @@ Route::group(['middleware' => ['web', 'checkblocked']], function () {
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'checkblocked']], function () {
 
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']]
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'twostep', 'checkblocked']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', 'AttractionController@list')->name('listAttraction-HomeVariant');
@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'chec
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'twostep', 'checkblocked']], function () {
 
     // User Profile and Account Routes
     Route::resource(
@@ -110,7 +110,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'twostep', 'checkblocked']], function () {
     Route::prefix('manage')->group(function () {
 
         //Routes for Attraction management

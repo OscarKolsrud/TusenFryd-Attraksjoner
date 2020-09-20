@@ -25,7 +25,14 @@
 <div class="pane-content">
     <h2 class="pane-title">{{ $attraction->name }}</h2>
     <b>Siste driftsmelding:</b><br>
-    Ingen tilgjengelig
+    @isset($servicemessage)
+        {{ $servicemessage->content }} <br><br>
+        Publisert: {{ \Carbon\Carbon::parse($servicemessage->created_at)->setTimezone('Europe/Oslo')->format('H:i d.m.Y') }}
+    @endisset
+
+    @empty($servicemessage)
+        Ingen tilgjengelig
+    @endempty
     <hr>
     <b>Åpningstid:</b><br>
     {{ $attraction->opening_times_information }}

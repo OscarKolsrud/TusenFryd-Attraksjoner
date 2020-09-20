@@ -4,6 +4,7 @@
         <a href="{{ url()->previous() }}" class="btn btn-primary">Tilbake</a>
         <form action="{{ route('serviceMsg-put', ['messageid' => $servicemessage->id]) }}" method="post">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="descriptionInput">Innhold</label>
                 <textarea class="form-control" id="descriptionInput" rows="3" name="content">{{ $servicemessage->content ?? old("content") }}</textarea>

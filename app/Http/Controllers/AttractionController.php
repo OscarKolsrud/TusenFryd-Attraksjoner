@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attraction;
+use App\Models\ServiceMessage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -15,8 +17,11 @@ class AttractionController extends Controller
     }
 
     public function driftsmeldingv1($attraction) {
+        $attraction = Attraction::where('slug', $attraction)->firstOrFail();
+
         return view('pages.iframes.statusmelding', [
-            'attraction' => Attraction::where('slug', $attraction)->firstOrFail()
+            'attraction' => $attraction,
+            'servicemessage' => ServiceMessage::where('attraction_id', $attraction->id)->where('expires_at', '>=', Carbon::now()->toDateTimeString())->orderBy('id', 'DESC')->first()
         ]);
     }
 

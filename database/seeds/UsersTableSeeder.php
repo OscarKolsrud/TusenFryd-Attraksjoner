@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', $seededAdminEmail)->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => $faker->userName,
+                'name'                           => 'admin',
                 'first_name'                     => $faker->firstName,
                 'last_name'                      => $faker->lastName,
                 'email'                          => $seededAdminEmail,
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', 'user@user.com')->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => $faker->userName,
+                'name'                           => 'user',
                 'first_name'                     => $faker->firstName,
                 'last_name'                      => $faker->lastName,
                 'email'                          => 'user@user.com',

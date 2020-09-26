@@ -10,6 +10,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{-- Left Side Of Navbar --}}
             <ul class="navbar-nav mr-auto">
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Attraksjoner
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('manage/attraction/list') ? 'active' : null }}"
+                               href="{{ route('listAttraction') }}">
+                                Oversikt
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('manage/attraction/new') ? 'active' : null }}"
+                               href="{{ route('addAttraction-view') }}">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i> Legg til ny
+                            </a>
+                        </div>
+                    </li>
+                @endauth
+
                 @role('admin')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

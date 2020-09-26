@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">Rediger statusmelding</div>
     <div class="card-body">
-        <a href="{{ url()->previous() }}" class="btn btn-primary">Tilbake</a>
+        <a href="{{ route('editAttraction-view', ['slug' => $servicemessage->attraction->slug]) }}" class="btn btn-primary">Tilbake til attraksjon</a>
         <form action="{{ route('serviceMsg-put', ['messageid' => $servicemessage->id]) }}" method="post">
             @csrf
             @method('PUT')

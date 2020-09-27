@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="openInput">Oppdater attraksjonsstatus (Nåværende status:@if($attraction->open) Åpen @else
-                        Stengt @endif)</label>
+                        Stengt @endif</label>
                 <select class="form-control" id="openInput" name="open">
                     <option value="1" {{ (old("open") == "1" || $attraction->open == "1" ? "selected":"") }}>Åpen</option>
                     <option value="0" {{ (old("open") == "0" || $attraction->open == "0" ? "selected":"") }}>Stengt</option>

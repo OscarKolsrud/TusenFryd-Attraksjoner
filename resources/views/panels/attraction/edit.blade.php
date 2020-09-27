@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">Rediger: {{ $attraction->name }}</div>
     <div class="card-body">
-        <a href="{{ route('editAttraction-view', ['slug' => $servicemessage->attraction->slug]) }}" class="btn btn-primary">Tilbake til attraksjon</a>
+        <a href="{{ route('editAttraction-view', ['slug' => $attraction->slug]) }}" class="btn btn-primary">Tilbake til attraksjon</a>
 
         <hr>
         <form action="{{ route('editAttraction-put', ['slug' => $attraction->slug]) }}" method="post">

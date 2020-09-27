@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class AttractionController extends Controller
 {
     public function publicListv1() {
-        return view('pages.iframes.ver1', [
+        return view('iframes.v1.table', [
             'attractions' => Attraction::orderBy('sort_order', 'ASC')->get()
         ]);
     }
@@ -19,27 +19,26 @@ class AttractionController extends Controller
     public function driftsmeldingv1($attraction) {
         $attraction = Attraction::where('slug', $attraction)->firstOrFail();
 
-        return view('pages.iframes.statusmelding', [
+        return view('iframes.v1.servicemessage', [
             'attraction' => $attraction,
             'servicemessage' => ServiceMessage::where('attraction_id', $attraction->id)->where('expires_at', '>=', Carbon::now()->toDateTimeString())->orderBy('id', 'DESC')->first()
         ]);
     }
 
-    public function list(Request $request) {
-        return view('pages.attraction.list', [
-            'attractions' => Attraction::paginate(15)
+    public function dashboard(Request $request) {
+        return view('dashboard', [
+            'attractions' => Attraction::orderBy('sort_order', 'ASC')->get()
         ]);
     }
 
     public function addView() {
-        return view('pages.attraction.add');
+        return view('attraction.add');
     }
 
     public function add(Request $request) {
         //Validate the incoming data
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'nullable',
             'read_more' => 'nullable|url',
             'open' => 'boolean',
             'opening_times_information' => 'nullable',
@@ -51,11 +50,11 @@ class AttractionController extends Controller
 
         $attraction = Attraction::create($validated);
 
-        return redirect()->route('editAttraction-view', ['slug' => $attraction->slug])->with(array('message' => 'Statusmeldingen ble publisert', 'status' => 'success'));
+        return redirect()->route('editAttraction.get', ['slug' => $attraction->slug])->with(array('message' => 'Attraksjonen ble lagt til', 'status' => 'success'));
     }
 
     public function editView($slug) {
-        return view('pages.attraction.edit', [
+        return view('attraction.edit', [
             'attraction' => Attraction::where('slug', $slug)->firstOrFail()
         ]);
     }
@@ -64,7 +63,6 @@ class AttractionController extends Controller
         //Validate the incoming data
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'nullable',
             'read_more' => 'nullable|url',
             'open' => 'boolean',
             'opening_times_information' => 'nullable',
@@ -75,7 +73,13 @@ class AttractionController extends Controller
         $attraction->update($validated);
         $attraction->save();
 
-        return redirect()->route('editAttraction-view', ['slug' => $attraction->slug])->with(array('message' => 'Endringene ble lagret', 'status' => 'success'));
+        return redirect()->route('editAttraction.get', ['slug' => $attraction->slug])->with(array('message' => 'Endringene ble lagret', 'status' => 'success'));
+    }
+
+    public function delete($slug) {
+        Attraction::where('slug', $slug)->delete();
+
+        return redirect()->route('dashboard')->with(array('message' => 'Attraksjonen ble slettet', 'status' => 'success'));
     }
 
     public function opening(Request $request, $slug) {
@@ -88,6 +92,6 @@ class AttractionController extends Controller
         $attraction->update($validated);
         $attraction->save();
 
-        return redirect()->route('listAttraction')->with(array('message' => 'Åpningstiden for '. $attraction->name . ' ble oppdatert', 'status' => 'success'));
+        return redirect()->route('dashboard')->with(array('message' => 'Åpningen for '. $attraction->name . ' ble oppdatert', 'status' => 'success'));
     }
 }

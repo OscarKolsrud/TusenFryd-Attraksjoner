@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attraction;
 use App\Models\ServiceMessage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,38 +13,68 @@ class ServiceMessageController extends Controller
     public function listView($attraction) {
         $data = Attraction::where('slug', $attraction)->firstOrFail();
 
-        return view('pages.servicemessage.listSpecific', [
+        return view('servicemessage.list', [
             'attraction' => $data,
             'servicemessages' => ServiceMessage::where('attraction_id', $data->id)->orderBy('id', 'DESC')->get()
         ]);
     }
 
     public function addView($attraction) {
-        return view('pages.servicemessage.add', [
+        return view('servicemessage.add', [
             'attraction' => Attraction::where('slug', $attraction)->firstOrFail()
         ]);
     }
 
-    public function editView($servicemessage) {
-        return view('pages.servicemessage.edit', [
+    public function editView($attraction, $servicemessage) {
+        return view('servicemessage.edit', [
+            'attraction' => Attraction::where('slug', $attraction)->firstOrFail(),
             'servicemessage' => ServiceMessage::findOrFail($servicemessage)
         ]);
     }
 
-    public function edit(Request $request, $servicemessage) {
+    public function edit(Request $request, $attraction, $servicemessage) {
         //Validate the incoming data
         $validated = $request->validate([
-            'content' => 'required'
+            'content' => 'required',
+            'expires_at_weeks' => 'required|numeric',
+            'expires_at_days' => 'required|numeric',
+            'expires_at_hours' => 'required|numeric',
+            'expire_now' => 'nullable|boolean'
         ], []);
 
         //Fetch the servicemessage
         $servicemessage = ServiceMessage::findOrFail($servicemessage);
 
-        //Update the content
-        $servicemessage->content = $validated["content"];
-        $servicemessage->update();
+        //Fetch the attraction
+        $attraction = Attraction::where('slug', $attraction)->firstOrFail();
 
-        return redirect()->route('serviceMsg-view', ['messageid' => $servicemessage->id])->with(array('message' => 'Statusmeldingens innhold ble oppdatert', 'status' => 'success'));
+        //Expire administration checks
+        if (isset($validated["expire_now"]) && $validated["expire_now"] == 1) {
+            //Check if a expire now request has been set
+            //Just set the expire time to the current time. This way a log will be kept, but the message will disappear from public view
+            $validated["expires_at"] = Carbon::now('UTC');
+        } elseif($validated["expires_at_weeks"] > 0 || $validated["expires_at_days"] > 0 || $validated["expires_at_hours"] > 0) {
+            //The message should be extended
+            $validated["expires_at"] = Carbon::parse($servicemessage["expires_at"])->addDays($validated["expires_at_days"])->addHours($validated["expires_at_hours"])->addWeeks($validated["expires_at_weeks"]);
+        }
+
+        //Remove the unneccesary stuff from the validated array
+        unset($validated["expire_now"]);
+        unset($validated["expires_at_hours"]);
+        unset($validated["expires_at_days"]);
+        unset($validated["expires_at_weeks"]);
+
+        //Update the content
+        $servicemessage->update($validated);
+        $servicemessage->save();
+
+        return redirect()->route('serviceMessage.edit.get', ['servicemessage' => $servicemessage->id, 'attraction' => $attraction->slug])->with(array('message' => 'Statusmeldingen ble oppdatert', 'status' => 'success'));
+    }
+
+    public function delete($attraction, $servicemessage) {
+        ServiceMessage::destroy($servicemessage);
+
+        return redirect()->route('serviceMessage.list.get', $attraction)->with(array('message' => 'Statusmeldingen ble slettet', 'status' => 'success'));
     }
 
     public function add(Request $request, $attraction) {
@@ -68,7 +99,7 @@ class ServiceMessageController extends Controller
         $attraction->save();
 
         //Make the correct format of expires_at
-        $validated["expires_at"] = \Carbon\Carbon::now('UTC')->addDays($validated["expires_at_days"])->addHours($validated["expires_at_hours"])->addWeeks($validated["expires_at_weeks"]);
+        $validated["expires_at"] = Carbon::now('UTC')->addDays($validated["expires_at_days"])->addHours($validated["expires_at_hours"])->addWeeks($validated["expires_at_weeks"]);
 
         //Remove the unneccesary stuff from the validated array
         unset($validated["open"]);
@@ -80,6 +111,6 @@ class ServiceMessageController extends Controller
         $servicemessage = ServiceMessage::create($validated);
 
 
-        return redirect()->route('serviceMsg-view', ['messageid' => $servicemessage->id])->with(array('message' => 'Statusmeldingen ble lagt til', 'status' => 'success'));
+        return redirect()->route('serviceMessage.edit.get', ['servicemessage' => $servicemessage->id, 'attraction' => $attraction->slug])->with(array('message' => 'Statusmeldingen ble lagt til', 'status' => 'success'));
     }
 }

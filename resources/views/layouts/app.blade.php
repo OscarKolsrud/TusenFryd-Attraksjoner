@@ -2,86 +2,61 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@hasSection('template_title')@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="">
-        <meta name="author" content="Jeremy Kenedy">
-        <link rel="shortcut icon" href="/favicon.ico">
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-        {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        {{-- Fonts --}}
-        @yield('template_linked_fonts')
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        {{-- Styles --}}
-        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+        @livewireStyles
 
-        @yield('template_linked_css')
-
-        <style type="text/css">
-            @yield('template_fastload_css')
-
-            @if (Auth::User() && (Auth::User()->profile) && (Auth::User()->profile->avatar_status == 0))
-                .user-avatar-nav {
-                    background: url({{ Gravatar::get(Auth::user()->email) }}) 50% 50% no-repeat;
-                    background-size: auto 100%;
-                }
-            @endif
-
-        </style>
-
-        {{-- Scripts --}}
-        <script>
-            window.Laravel = {!! json_encode([
-                'csrfToken' => csrf_token(),
-            ]) !!};
-        </script>
-
-        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
-            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
-        @endif
-
-        @yield('head')
-        @include('scripts.ga-analytics')
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
     </head>
-    <body>
-        <div id="app">
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigation-dropdown')
 
-            @include('partials.nav')
+            <!-- Page Heading -->
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
-            <main class="py-4">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            @include('partials.form-status')
+            <!-- Page Content -->
+            <main>
+                @if (session('message'))
+                    <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="rounded-md @if(Session::get('status') == "success") bg-green-50 @elseif(Session::get('status') == "danger") bg-red-50 @elseif(Session::get('status') == "warning") bg-yellow-50 @else bg-blue-50 @endif p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <!-- Heroicon name: information-circle -->
+                                    <svg class="h-5 w-5 @if(Session::get('status') == "success") text-green-400 @elseif(Session::get('status') == "danger") text-red-400 @elseif(Session::get('status') == "warning") text-yellow-400 @else text-blue-400 @endif " viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3 flex-1 md:flex md:justify-between">
+                                    <p class="text-sm leading-5 @if(Session::get('status') == "success") text-green-700 @elseif(Session::get('status') == "danger") text-red-700 @elseif(Session::get('status') == "warning") text-yellow-700 @else text-blue-700 @endif ">
+                                        {{ session('message') }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
 
-                @yield('content')
-
+                {{ $slot }}
             </main>
-
         </div>
 
-        {{-- Scripts --}}
-        <script src="{{ mix('/js/app.js') }}"></script>
+        @stack('modals')
 
-        @if(config('settings.googleMapsAPIStatus'))
-            {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.config("settings.googleMapsAPIKey").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
-        @endif
-
-        @yield('footer_scripts')
-
+        @livewireScripts
     </body>
 </html>

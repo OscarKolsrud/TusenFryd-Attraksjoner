@@ -2,63 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
     use Notifiable;
-    use SoftDeletes;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = true;
-
-    /**
-     * The attributes that are not mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [
-        'id',
-    ];
-
-    /**
-     * The attributes that are hidden.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'activated',
-        'token',
-    ];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    use TwoFactorAuthenticatable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -67,18 +27,20 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'first_name',
-        'last_name',
         'email',
         'password',
-        'activated',
-        'token',
-        'signup_ip_address',
-        'signup_confirmation_ip_address',
-        'signup_sm_ip_address',
-        'admin_ip_address',
-        'updated_ip_address',
-        'deleted_ip_address',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -87,80 +49,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'id'                                => 'integer',
-        'first_name'                        => 'string',
-        'last_name'                         => 'string',
-        'email'                             => 'string',
-        'password'                          => 'string',
-        'activated'                         => 'boolean',
-        'token'                             => 'string',
-        'signup_ip_address'                 => 'string',
-        'signup_confirmation_ip_address'    => 'string',
-        'signup_sm_ip_address'              => 'string',
-        'admin_ip_address'                  => 'string',
-        'updated_ip_address'                => 'string',
-        'deleted_ip_address'                => 'string',
+        'email_verified_at' => 'datetime',
     ];
 
     /**
-     * Get the socials for the user.
-     */
-    public function social()
-    {
-        return $this->hasMany('App\Models\Social');
-    }
-
-    /**
-     * Get the profile associated with the user.
-     */
-    public function profile()
-    {
-        return $this->hasOne('App\Models\Profile');
-    }
-
-    /**
-     * The profiles that belong to the user.
-     */
-    public function profiles()
-    {
-        return $this->belongsToMany('App\Models\Profile')->withTimestamps();
-    }
-
-    /**
-     * Check if a user has a profile.
+     * The accessors to append to the model's array form.
      *
-     * @param  string  $name
-     *
-     * @return bool
+     * @var array
      */
-    public function hasProfile($name)
-    {
-        foreach ($this->profiles as $profile) {
-            if ($profile->name === $name) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Add/Attach a profile to a user.
-     *
-     * @param  Profile $profile
-     */
-    public function assignProfile(Profile $profile)
-    {
-        return $this->profiles()->attach($profile);
-    }
-
-    /**
-     * Remove/Detach a profile to a user.
-     *
-     * @param  Profile $profile
-     */
-    public function removeProfile(Profile $profile)
-    {
-        return $this->profiles()->detach($profile);
-    }
+    protected $appends = [
+        'profile_photo_url',
+    ];
 }

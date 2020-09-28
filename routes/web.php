@@ -59,7 +59,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     //User management routes
-    Route::prefix('/user')->middleware(['role:super-admin'])->group(function () {
+    Route::prefix('/user')->middleware(['role:Administrator'])->group(function () {
         //List user table
         Route::get('/', [UserMgmtController::class, 'listPage'])->name('userMgmt.get');
 

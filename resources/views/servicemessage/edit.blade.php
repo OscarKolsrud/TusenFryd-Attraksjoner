@@ -127,27 +127,6 @@
                                     </div>
                             </div>
                         </div>
-                            @if(!\Carbon\Carbon::parse($servicemessage->expires_at)->isPast())
-                                <div class="mt-8 border-t border-gray-200 pt-8">
-                                    <div>
-                                        <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                            Slett statusmeldingen
-                                        </h3>
-                                    </div>
-                                    <div class="mt-3 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                                        <div class="sm:col-span-6">
-                                            <form id="deleteMessage" action="{{ route('serviceMessage.edit.delete', ['attraction' => $attraction->slug, 'servicemessage' => $servicemessage->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
-                                            <button type="button" onclick="event.preventDefault(); this.closest('form').submit();" class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
-                                                Slett Statusmelding
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-
                         <div class="mt-8 border-t border-gray-200 pt-5">
                             <div class="flex justify-end">
                                       <span class="inline-flex rounded-md shadow-sm">
@@ -168,4 +147,20 @@
             </div>
         </div>
     </div>
+
+    @if(!\Carbon\Carbon::parse($servicemessage->expires_at)->isPast())
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                    <div class="flex justify-center">
+                        <form id="deleteMessage" action="{{ route('serviceMessage.edit.delete', ['attraction' => $attraction->slug, 'servicemessage' => $servicemessage->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Slett statusmelding" class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </x-app-layout>

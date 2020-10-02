@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e517b5d9-9f0b-4aeb-8a05-7b557e1c13ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/attraksjonerv2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/attraksjonerv2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="e517b5d9-9f0b-4aeb-8a05-7b557e1c13ea" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +9,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -143,48 +137,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
-      <path value="$PROJECT_DIR$/vendor/creativeorange/gravatar" />
-      <path value="$PROJECT_DIR$/vendor/intervention/image" />
-      <path value="$PROJECT_DIR$/vendor/laravel/helpers" />
-      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/eklundkristoffer/seedster" />
-      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
-      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/instagram" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/37signals" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/twitch" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/generators" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/youtube" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/linkedin" />
-      <path value="$PROJECT_DIR$/vendor/rap2hpoutre/laravel-log-viewer" />
-      <path value="$PROJECT_DIR$/vendor/shvetsgroup/laravel-email-database-log" />
-      <path value="$PROJECT_DIR$/vendor/jaybizzle/laravel-crawler-detect" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-logger" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/uuid" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-exception-notifier" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-roles" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel2step" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-blocker" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-https" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-phpinfo" />
-      <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
-      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1i3Mi7HGLrWLA0pjpNIJdx3io2B" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -209,7 +170,19 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+    <option name="showServicesTree" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -221,12 +194,12 @@
       <option name="presentableId" value="Default" />
       <updated>1601131945911</updated>
       <workItem from="1601131952374" duration="33595000" />
-      <workItem from="1601277784215" duration="70000" />
+      <workItem from="1601544998873" duration="2521000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601241375457">

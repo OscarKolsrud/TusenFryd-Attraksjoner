@@ -124,39 +124,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
-      <path value="$PROJECT_DIR$/vendor/creativeorange/gravatar" />
-      <path value="$PROJECT_DIR$/vendor/intervention/image" />
-      <path value="$PROJECT_DIR$/vendor/laravel/helpers" />
-      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/eklundkristoffer/seedster" />
-      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
-      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/instagram" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/37signals" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/twitch" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/generators" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/youtube" />
-      <path value="$PROJECT_DIR$/vendor/socialiteproviders/linkedin" />
-      <path value="$PROJECT_DIR$/vendor/rap2hpoutre/laravel-log-viewer" />
-      <path value="$PROJECT_DIR$/vendor/shvetsgroup/laravel-email-database-log" />
-      <path value="$PROJECT_DIR$/vendor/jaybizzle/laravel-crawler-detect" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-logger" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/uuid" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-exception-notifier" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-roles" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel2step" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-blocker" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-https" />
-      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-phpinfo" />
-      <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
-      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

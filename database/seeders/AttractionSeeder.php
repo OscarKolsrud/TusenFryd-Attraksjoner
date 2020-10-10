@@ -89,7 +89,7 @@ class AttractionSeeder extends Seeder
             [
                 "name" => "Badefrydelven",
                 "read_more" => "https://www.tusenfryd.no/se-og-gjore/attraksjoner/badefrydelven",
-                "open" => 0,
+                "open" => 1,
                 "opening_times" => "Ikke tilgjengelig",
                 "sort_order" => 21
             ],

@@ -136,21 +136,26 @@
         </div>
     </div>
 
-        @can('delete attraction')
+
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div class="flex justify-center">
+                        <a href="{{ route('auditAttraction.get', $attraction->slug) }}" target="_blank" role="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">Vis redigeringslogg (Audit)</a>
+                        <br>
+                        @can('delete attraction')
                         <form action="{{ route('editAttraction.delete', $attraction->slug) }}"
                               method="post">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Slett attraksjon" class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
                         </form>
+                        @endcan
                     </div>
                 </div>
             </div>
         </div>
-        @endcan
+
 
 </x-app-layout>

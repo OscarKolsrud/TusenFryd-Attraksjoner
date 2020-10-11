@@ -53,6 +53,16 @@ class AttractionController extends Controller
         return redirect()->route('editAttraction.get', ['slug' => $attraction->slug])->with(array('message' => 'Attraksjonen ble lagt til', 'status' => 'success'));
     }
 
+    public function auditView(Request $request, $slug) {
+        //Fetch the attraction
+        $attraction = Attraction::where('slug', $slug)->firstOrFail();
+
+        return view('attraction.audit', [
+            'attraction' => $attraction,
+            'audits' => Attraction::where('slug', $slug)->firstOrFail()->audits->sortBy('created_at')
+        ]);
+    }
+
     public function editView($slug) {
         return view('attraction.edit', [
             'attraction' => Attraction::where('slug', $slug)->firstOrFail()

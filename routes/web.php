@@ -41,6 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{slug}', [AttractionController::class, 'editView'])->name('editAttraction.get');
         Route::put('/{slug}', [AttractionController::class, 'edit'])->name('editAttraction.put');
         Route::delete('/{slug}', [AttractionController::class, 'delete'])->middleware(['permission:delete attraction'])->name('editAttraction.delete');
+        Route::get('/{slug}/audit-log', [AttractionController::class, 'auditView'])->name('auditAttraction.get');
         Route::put('/{slug}/opening', [AttractionController::class, 'opening'])->name('editAttraction.open.put');
 
         //List servicemessages for specific attraction

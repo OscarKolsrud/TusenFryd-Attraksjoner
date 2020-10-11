@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e517b5d9-9f0b-4aeb-8a05-7b557e1c13ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/attraksjonerv2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/attraksjonerv2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/AttractionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AttractionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/iframes/v1/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/iframes/v1/table.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +162,7 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/owen-it/laravel-auditing" />
     </include_path>
   </component>
   <component name="ProjectId" id="1i3Mi7HGLrWLA0pjpNIJdx3io2B" />
@@ -206,7 +209,8 @@
       <updated>1601131945911</updated>
       <workItem from="1601131952374" duration="33595000" />
       <workItem from="1601544998873" duration="2521000" />
-      <workItem from="1602315793537" duration="6719000" />
+      <workItem from="1602315793537" duration="17072000" />
+      <workItem from="1602420902495" duration="389000" />
     </task>
     <servers />
   </component>
@@ -223,6 +227,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601241375457">
@@ -233,10 +238,11 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="978" y="493" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1602323809396" />
-    <state x="1355" y="507" key="NewPhpFileDialog" timestamp="1601244436963">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1355" y="566" key="NewPhpFileDialog" timestamp="1602404352580">
+      <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="1355" y="507" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601244436963" />
+    <state x="1355" y="566" key="NewPhpFileDialog/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1602404352580" />
     <state x="591" y="222" width="737" height="596" key="find.popup" timestamp="1601151323647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

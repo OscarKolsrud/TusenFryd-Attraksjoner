@@ -45,7 +45,7 @@
                 <tr>
                     <td>{{ $attraction->name }}</td>
                     <td>@if($attraction->open)<span style="color:#16a085">Åpen</span>@else<span style="color:#e74c3c">Stengt</span>@endif</td>
-                    <td><a href="{{ route('driftsmeldingv1', ['attraction' => $attraction->slug]) }}" rel="modal:open">@if($attraction->ServiceMessages()->where('expires_at', '>=', \Carbon\Carbon::now()->toDateTimeString())->orderBy('id', 'DESC')->get()->isNotEmpty()) Driftsmeldinger @else Les mer @endif</a></td>
+                    <td><a href="{{ route('driftsmeldingv1', ['attraction' => $attraction->slug]) }}" rel="modal:open">@if($attraction->ServiceMessages()->where('expires_at', '>=', \Carbon\Carbon::now()->toDateTimeString())->orderBy('id', 'DESC')->get()->isNotEmpty()) Driftsmeldinger @else Driftsmeldinger @endif</a></td>
                     <!--<td><span style="color:#e67e23">Lang kø</span></td>-->
                 </tr>
                 @if($loop->last)
